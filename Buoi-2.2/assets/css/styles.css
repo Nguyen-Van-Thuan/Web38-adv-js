@@ -105,6 +105,7 @@
   background-color: #fff;
   padding: 20px;
   position: absolute;
+  left: 0;
   bottom: -100%;
   transition: bottom .5s;
 }
