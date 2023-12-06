@@ -1,0 +1,63 @@
+/* Reset Browser */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Header./start */
+.header-main {
+  height: 80px;
+  background-color: #373b69;
+}
+.wrap-header {
+  display: flex;
+}
+.logo-site {
+  width: 20%;
+  color: #fff;
+  font-size: 40px;
+  text-transform: uppercase;
+  height: 80px;
+  line-height: 80px;
+}
+
+.menu {
+  width: 50%;
+}
+.menu ul {
+  display: flex;
+  height: 80px;
+  align-items: center;
+}
+.menu ul li {
+  margin: 0 18px;
+  list-style: none;
+}
+.menu ul li a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.menu ul li:hover a {
+  text-decoration: underline;
+}
+.wrap-form {
+  width: 30%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.wrap-form .form-search input {
+  height: 44px;
+  border-radius: 50px;
+  outline: none;
+  border: 2px solid #22254b;
+  background-color: transparent;
+  padding: 10px;
+}
+.wrap-form .form-search input:focus {
+  background-color: #22254b;
+}
