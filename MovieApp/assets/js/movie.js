@@ -1,5 +1,7 @@
+// API server
 const API_URL = 'http://localhost:3000/movie';
 
+// API duong danh anh
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
 /* Truy cap phan tu */
@@ -7,9 +9,11 @@ let rowMovie = document.querySelector(".row-js");
 
 /* Get API */
 let getMovie = async (url) => {
+  // console.log(url);
   let response = axios.get(url);
   let res_1 = await response;
 
+  // console.log(res_1.data);
   return showMoive(res_1.data);
 };
 
@@ -17,7 +21,8 @@ getMovie(API_URL);
 
 /* Show data Movie */
 let showMoive = (data) => {
-  let listMovie = data.results;
+  // console.log(data);
+  let listMovie = data;
   let HTML = ``;
   listMovie.forEach((value, index) => {
 
