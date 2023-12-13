@@ -26,27 +26,33 @@ let showMoive = (data) => {
   let HTML = ``;
   listMovie.forEach((value, index) => {
 
+    // console.log(value);
 
     HTML = HTML + `
       <div class="col-md-3 col-sm-6 col-12">
-        <div class="box-movie">
-          <img src=${IMG_PATH + value.poster_path} alt="images short movie">
-          <div class="movie-content">
-            <div class="movie-info">
-              <div class="movie-title">
-                ${value.title}
-              </div>
-              <div class="movie-start ${showRating(value.vote_average)}"> 
-                ${value.vote_average}
+
+        <a href="./detail.html?id=${value.id}">
+          <div class="box-movie">
+            <img src=${IMG_PATH + value.poster_path} alt="images short movie">
+            <div class="movie-content">
+              <div class="movie-info">
+                <div class="movie-title">
+                  ${value.title}
+                </div>
+                <div class="movie-start ${showRating(value.vote_average)}"> 
+                  ${value.vote_average}
+                </div>
               </div>
             </div>
+            <div class="movie-overview">
+              <h3>Overview</h3>
+              <p>${value.overview}</p>
+            </div>
           </div>
-          <div class="movie-overview">
-            <h3>Overview</h3>
-            <p>${value.overview}</p>
-          </div>
-        </div>
+        </a>
+
       </div>
+      
     `
   });
   // Hien thi ra giao dien
