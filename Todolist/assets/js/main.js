@@ -53,11 +53,11 @@ let ulElement = document.querySelector("#todos");
 // let DB = [
 //   {
 //     "name": "Cong viec 1",
-//     "completed": "Hoan thanh"
+//     "completed": true
 //   },
 //   {
 //     "name": "Cong viec 2",
-//     "completed": "chua hoan thanh"
+//     "completed": false
 //   }
 // ];
 
@@ -73,19 +73,30 @@ let listTodo = JSON.parse(localStorage.getItem("TASK"));
 // B3.2: Kiem tra listTodo ton tai hay khong
 
 let updateStorage = () => {
-  console.log("update");
+  // console.log("update");
 }
 
 let showTodo = (list) => {
 
   let nameTodo = inputElement.value; //value no cu phap
 
+  console.log(list);  
+
   if (list) {
     nameTodo = list.name; //in ra ten cong viec
   }
 
   if (nameTodo) {
-    let liElement = document.createElement("li"); //<li></li>
+    let liElement = document.createElement("li"); //Tao ra 1 the <li></li>
+
+    // Truoc khi in li check CV hoan thanh hay chua -> add class completed ?
+    if(list && list.completed == true) { //list va list.name phai tai
+      console.log(list.completed);
+      // Cu phap them 1 the tu js vao trong css
+      liElement.classList.add("completed");
+    }
+
+
     liElement.innerHTML = nameTodo; //gan li vs ten cong viec
     ulElement.appendChild(liElement); //in ra
 
