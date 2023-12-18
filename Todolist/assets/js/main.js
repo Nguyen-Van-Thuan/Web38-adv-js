@@ -73,35 +73,58 @@ let listTodo = JSON.parse(localStorage.getItem("TASK"));
 // B3.2: Kiem tra listTodo ton tai hay khong
 
 let updateStorage = () => {
-  // console.log("update");
+
+  let newLiElement = document.querySelectorAll('li');
+
+  let todo = [];
+  newLiElement.forEach((item)=>{
+    // console.log(item);
+    todo.push({
+      "name": item.innerHTML,
+      "completed": item.classList.contains("completed")
+    });
+  });
+
+  console.log(todo);
+
+  localStorage.setItem("TASK", JSON.stringify(todo));
+
 }
 
 let showTodo = (list) => {
-
   let nameTodo = inputElement.value; //value no cu phap
-
-  console.log(list);  
-
   if (list) {
     nameTodo = list.name; //in ra ten cong viec
   }
 
   if (nameTodo) {
-    let liElement = document.createElement("li"); //Tao ra 1 the <li></li>
+    let liElement = document.createElement("li"); //Tao the <li></li>
 
-    // Truoc khi in li check CV hoan thanh hay chua -> add class completed ?
+    // Check CV hoan thanh hay chua -> add class completed ?
     if(list && list.completed == true) { //list va list.name phai tai
-      console.log(list.completed);
-      // Cu phap them 1 the tu js vao trong css
+      // Cu phap them 1 the tu js vao trong css: classList.add
       liElement.classList.add("completed");
     }
 
-
     liElement.innerHTML = nameTodo; //gan li vs ten cong viec
+
+    // Edit Trang thai cong viec
+    liElement.addEventListener("click", ()=>{
+      liElement.classList.toggle("completed"); // classList.toggle() co san
+      updateStorage();
+    });
+
+    // Remove cong viec duoc chon
+    liElement.addEventListener("contextmenu", (event)=>{
+      event.preventDefault();
+      liElement.remove(); //remove() co san  js
+      updateStorage();
+    });
+
+
+
     ulElement.appendChild(liElement); //in ra
-
     inputElement.value = '';
-
     updateStorage();
 
   }
